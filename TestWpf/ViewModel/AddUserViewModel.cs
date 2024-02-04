@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.DirectoryServices;
 using System.Linq;
 using System.Text;
@@ -33,5 +34,7 @@ namespace TestWpf.ViewModel
         {
             UserManager.AddUser(new User() { Name = Name, Email = Email });
         }
+
+
     }
 }

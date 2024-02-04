@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Printing;
 using System.Text;
@@ -15,7 +16,7 @@ namespace TestWpf.ViewModel
 {
     public class MainViewModel
     {
-
+    
         public ObservableCollection<User> Users { get; set; }
 
         public ICommand ShowWindowCommand { get; set; }
@@ -24,6 +25,7 @@ namespace TestWpf.ViewModel
         {
             Users = UserManager.GetUsers();
             ShowWindowCommand = new RelayCommand(ShowWindow, CanShowWindow);
+
         }
 
         private bool CanShowWindow(object obj)
@@ -39,5 +41,7 @@ namespace TestWpf.ViewModel
             addUserWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             addUserWindow.Show();
         }
+
+  
     }
 }

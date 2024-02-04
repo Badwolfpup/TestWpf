@@ -1,4 +1,4 @@
-﻿<Window x:Name="mainwindow" x:Class="TestWpf.MainWindow"
+﻿<Window x:Name="mainwindow" x:Class="TestWpf.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -24,6 +24,18 @@
         </Grid>
         <TextBox Name="FilterTextBox" TextChanged="FilterTextBox_TextChanged" Height="30" Width="200" Margin="33,20,0,0" Grid.Row="0" HorizontalAlignment="Left"></TextBox>
         <Button Height="30" Content="+  Add user" Name="AddUser" CommandParameter="{x:Reference Name=mainwindow}" Command="{Binding ShowWindowCommand}" Width="100" VerticalAlignment="Top" Padding="5" HorizontalAlignment="Left" Margin="675,20,0,0" Background="DarkBlue" FontSize="15" Foreground="#FFF9F5F5" />
-
+        <TextBlock x:Name="showName" Margin="250, 20,0,0" Width="200" HorizontalAlignment="Left" >
+            <!--<TextBlock.Text>
+                <MultiBinding StringFormat="Name: {0}, Email: {1}">
+                    <Binding ElementName="UserList" Path="SelectedItem.Name"></Binding>
+                    <Binding ElementName="UserList" Path="SelectedItem.Email"></Binding>
+                </MultiBinding>
+            </TextBlock.Text>-->
+                <Run Text="{Binding ElementName=UserList, Path=SelectedItem.Name}"></Run>
+                <Run Text=", "></Run>
+                <Run Text="{Binding ElementName=UserList, Path=SelectedItem.Email}"></Run>
+        </TextBlock>
+        <TextBlock x:Name="propertyText" Margin="470, 20,0,0" Width="20" HorizontalAlignment="Left" Text="{Binding GetProp}"></TextBlock>
+        <Button x:Name="changeProperty" Margin="500, 20,0,0" Width="100" HorizontalAlignment="Left" Content="Change property" Click="changeProperty_Click"></Button>
     </Grid>
 </Window>
